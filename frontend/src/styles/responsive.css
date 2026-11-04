@@ -1,0 +1,18 @@
+@media (max-width: 640px) {
+  .showreel-frame { min-height: 310px; }
+  .showreel-copy { padding: 24px 7%; }
+  .showreel-copy p { font-size: clamp(38px, 10vw, 57px); }
+  .showreel-orbit { width: 150px; right: 9%; opacity: .8; }
+  .showreel-ribbons { opacity: .6; }
+  .showreel-note { max-width: 190px; line-height: 1.6; }
+  .hero-echo { top: 27%; right: -24%; bottom: 17%; width: 94%; opacity: .75; }
+  .hero-echo-track span { font-size: clamp(52px, 14vw, 76px); }
+  .hero-copy { top: 31%; left: 7%; max-width: 88%; }
+  .hero h1 { font-size: clamp(68px, 16vw, 96px); }
+  .hero-visual { z-index: 2; inset: 20% -26% 5% 2%; }
+  .project-detail { padding-top: 110px; padding-bottom: 65px; }
+  .project-detail-heading { padding: 46px 0 23px; }
+  .project-detail-heading h1 { font-size: clamp(45px, 13vw, 75px); }
+  .project-detail > .project-art { aspect-ratio: 1.1; }
+  .project-detail-footer { align-items: flex-start; gap: 20px; flex-direction: column; }
+}
