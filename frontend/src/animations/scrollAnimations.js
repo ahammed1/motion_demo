@@ -17,28 +17,43 @@ function addCinematicSectionTransitions(scope) {
 
     // Compact sections become deliberate, pinned scenes. Longer sections keep
     // their natural reading flow and receive a lighter scroll-linked transition.
-    const timeline = gsap.timeline({
-      scrollTrigger: {
-        trigger: section,
-        start: "top top",
-        end: () => `+=${Math.round(window.innerHeight * duration)}`,
-        pin: isCompact,
-        pinSpacing: true,
-        scrub: 1.1,
-        anticipatePin: 1,
-        invalidateOnRefresh: true,
-      },
-    });
-
-    timeline.fromTo(
-      section,
-      { autoAlpha: 1, clipPath: "inset(0% 0% 0% 0%)" },
-      {
-        autoAlpha: 0.48,
-        clipPath: "inset(0% 0% 9% 0%)",
-        ease: "none",
-      },
-    );
+    const timeline = isCompact
+      ? gsap.timeline({
+          scrollTrigger: {
+            trigger: section,
+            start: "top top",
+            end: () => `+=${Math.round(window.innerHeight * duration)}`,
+            pin: true,
+            pinSpacing: true,
+            scrub: 1.1,
+            anticipatePin: 1,
+            invalidateOnRefresh: true,
+          },
+        }).fromTo(
+          section,
+          { autoAlpha: 1, clipPath: "inset(0% 0% 0% 0%)" },
+          {
+            autoAlpha: 0.48,
+            clipPath: "inset(0% 0% 9% 0%)",
+            ease: "none",
+          },
+        )
+      : gsap.fromTo(
+          section,
+          { autoAlpha: 0.72, clipPath: "inset(0% 0% 5% 0%)" },
+          {
+            autoAlpha: 1,
+            clipPath: "inset(0% 0% 0% 0%)",
+            ease: "none",
+            scrollTrigger: {
+              trigger: section,
+              start: "top 82%",
+              end: "top 32%",
+              scrub: 0.8,
+              invalidateOnRefresh: true,
+            },
+          },
+        );
     timelines.push(timeline);
   });
 
