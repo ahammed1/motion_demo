@@ -1,11 +1,15 @@
 import { ArrowDown, ArrowDownRight, ArrowUpRight } from "lucide-react";
 import MagneticButton from "../components/MagneticButton.jsx";
+import Scene3D from "../components3D/Scene3D.jsx";
 
-export default function Hero() {
+export default function Hero({ ready = false }) {
   return (
     <section className="hero" id="home">
       <div className="hero-grid" />
       <div className="hero-ambient" />
+      <div className="hero-visual" aria-hidden="true">
+        {ready ? <Scene3D /> : null}
+      </div>
       <div className="hero-echo" aria-hidden="true">
         <div className="hero-echo-track">
           {Array.from({ length: 16 }, (_, index) => <span key={index}>Ideas in motion</span>)}
